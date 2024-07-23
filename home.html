@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT. MEGA GLOBAL ENERGY - Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jarallax@1.12.8/dist/jarallax.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jarallax@1.12.8/dist/jarallax.min.js"></script>
+</head>
+<body id="home">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <a class="navbar-brand" href="home.html">
+            <img src="logomge.png" alt="Logo" style="width: 40px; margin-right: 10px;">
+            PT. MEGA GLOBAL ENERGY
+        </a>
+        <input type="checkbox" id="nav_check" hidden>
+        <label for="nav_check" class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link active" href="home.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="jo-daily.html">JO DAILY PERFORMANCE</a></li>
+            <li class="nav-item"><a class="nav-link" href="ob-fleet.html">OB FLEET</a></li>
+            <li class="nav-item"><a class="nav-link" href="fms-hauling.html">FMS HAULING</a></li>
+            <li class="nav-item"><a class="nav-link" href="a2b-dashboard.html">A2B DASHBOARD</a></li>
+            <li class="nav-item"><a class="nav-link" href="monitoring-hse.html">MONITORING HSE</a></li>
+            <li class="nav-item"><a class="nav-link" href="fuel.html">FUEL</a></li>
+            <li class="nav-item"><a class="nav-link" href="ob.html">OB</a></li>
+            <li class="nav-item"><a class="nav-link" href="sapewali.html">SAPEWALI</a></li>
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <header id="home" class="jarallax" style="background-image: url('fixhead.jpg');">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Solid Energy Endless Potential</h1>
+            <p>With innovative mining techniques, we unlock the endless potential of coal, ensuring a dependable energy supply for future generations</p>
+        </div>
+    </header>
+    
+    <section id="home" class="section-background jarallax" style="background-image: url('coal.jpg');">
+        <div class="overlay"></div>
+        <div class="content">
+            <h2>Welcome to PT. MEGA GLOBAL ENERGY</h2>
+            <p>Our mission is to lead the way in mining and energy through innovation and dedication, transforming solid energy into endless potential. With our highly skilled and passionate team, we harness the power of coal to fuel industries and drive national prosperity. We are committed to sustainable practices that ensure long-term growth and a brighter future for our communities and the nation. Join us as we unlock the boundless possibilities of energy, empowering progress and sustainability for generations to come..</p>
+        </div>
+    </section>
+    
+    <section id="about" class="section-background jarallax" style="background-image: url('about.jpg');">
+        <div class="overlay"></div>
+        <div class="content">
+            <h2>About Us</h2>
+            <p>History of PT. MEGA GLOBAL ENERGY</p>
+            <p>PT. Mega Global Energy (MGE) was established in 2007 as a subsidiary of LX International Corporation, South Korea. MGE operates in the fields of coal mining and coal trading. Currently, MGE has mining operations in Kutai Kartanegara Regency, East Kalimantan.</p>
+        </div>
+    </section>
+    
+    <section id="services" class="section-background jarallax" style="background-image: url('services.jpg');">
+        <div class="overlay"></div>
+        <div class="content">
+            <h2>Our Services</h2>
+            <p>At PT. Mega Global Energy (MGE), we specialize in comprehensive coal mining and trading services. From exploration and extraction to processing and distribution, we deliver high-quality coal efficiently and sustainably. Our commitment to environmental stewardship and regulatory compliance ensures responsible operations. With advanced technologies and a skilled team, we provide exceptional value, supporting industry growth and community prosperity.</p>
+        </div>
+    </section>
+    
+    <section id="contact" class="section-background jarallax" style="background-image: url('contact.jpg');">
+        <div class="overlay"></div>
+        <div class="content">
+            <h2>Contact Us</h2>
+            <p>Reach out to us for further details and inquiries.</p>
+        </div>
+    </section>
+    
+    <footer class="container-fluid">
+        <p>&copy; 2023 PT. MEGA GLOBAL ENERGY. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            window.addEventListener('scroll', function() {
+                let navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) { // adjust value as needed
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+        });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        jarallax(document.querySelectorAll('.jarallax'), {
+            speed: 0.2
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('.section-background .content, header .content');
+    
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            } else {
+                entry.target.classList.remove('show');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+    
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
+
+    </script>
+    
+</body>
+</html>

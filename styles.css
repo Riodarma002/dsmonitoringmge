@@ -1,0 +1,526 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* General styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    font-size: 1rem;
+}
+
+h1 {
+    font-size: calc(1rem + 1vw); /* Ukuran font responsif untuk h1 */
+}
+
+h2 {
+    font-size: calc(0.75rem + 0.5vw); /* Ukuran font responsif untuk h2 */
+}
+
+p {
+    font-size: calc(1.1rem + 0.5vw); /* Ukuran font responsif untuk p */
+}
+
+.navbar-brand  {
+    font-size: calc(0.4rem + 0.5vw); /* Ukuran font responsif untuk navbar */
+}
+.nav-link {
+    font-size: calc(0.4rem + 0.5vw);
+}
+
+.content {
+    font-size: calc(2.5rem + 0.5vw);
+}
+
+.input-group label {
+    font-size: calc(0.5rem + 0.5vw); /* Ukuran font responsif untuk label input */
+}
+
+input {
+    font-size: calc(0.5rem + 0.5vw); /* Ukuran font responsif untuk input */
+}
+
+footer p {
+    font-size: calc(0.4rem + 0.5vw); /* ukuran font responsif untuk footer */
+}
+
+/* Penyesuaian untuk layar yang lebih kecil */
+@media only screen and (max-width: 1000px) {
+    .navbar-nav {
+        font-size: calc(0.5rem + 0.5vw); /* Sesuaikan ukuran font untuk layar kecil */
+    }
+
+    .nav-link {
+        font-size: calc(0.9rem + 0.5vw);
+    }
+
+    header .content {
+        padding: 2rem 1rem; /* Sesuaikan padding untuk layar kecil */
+    }
+    .content {
+        font-size: calc(2rem + 0.5vw);
+    }
+    .input-group label {
+        font-size: calc(0.9rem + 0.5vw); /* Sesuaikan ukuran font untuk layar kecil */
+    }
+
+    input {
+        font-size: calc(0.9rem + 0.5vw); /* Sesuaikan ukuran font untuk layar kecil */
+    }
+
+    .footer p {
+        font-size: calc(0.4rem + 0.5vw); /* Sesuaikan ukuran font untuk layar kecil di footer */
+    }
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: transparent !important;
+    transition: background-color 0.3s ease;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1050;
+    border: none;
+    box-shadow: none;
+}
+
+/* Hover effect for navbar links */
+.navbar-nav .nav-item .nav-link {
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 0.5rem 1rem; 
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #ffffff !important;
+    background-color: rgba(40, 92, 64, 0.8); /* Adjust color as needed */
+    border-radius: 5px;
+}
+
+.navbar-brand .logo {
+    width: 30px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Responsive Navbar */
+.hamburger {
+    cursor: pointer;
+    display: none;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 2px;
+    margin: 5px 0;
+    background: #ffffff;
+}
+
+@media only screen and (max-width: 1000px) {
+    .hamburger {
+        display: block;
+    }
+    .navbar-nav {
+        display: none;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 70px;
+        background: #ffffff;
+        padding: 30px;
+        transition: 0.3s;
+    }
+    .navbar #nav_check:checked + .hamburger + .navbar-nav {
+        display: block;
+    }
+    .navbar-nav li {
+        display: block;
+        text-align: center;
+        margin: 5px 0;
+    }
+    .navbar-nav .nav-link {
+        margin: 5px 0;
+        color: #000 !important;
+    }
+    .navbar.scrolled .navbar-nav {
+        background: #000 !important;
+    }
+}
+
+.navbar.scrolled {
+    background-color: #000 !important; 
+}
+
+.navbar.scrolled .navbar-brand {
+    color: #ffffff !important; 
+    border: none;
+    box-shadow: none;
+}
+
+/* Default state of hamburger icon */
+.hamburger div {
+    background: #ffffff;
+}
+
+/* Hamburger icon color when scrolled */
+.navbar.scrolled .hamburger div {
+    background: #ffffff; /* Warna putih */
+    box-shadow: none;
+    border: none;
+}
+
+/* Navbar link color */
+.nav-link {
+    color: #ffffff !important;
+}
+
+.navbar.scrolled .nav-link {
+    color: #ffffff !important; 
+}
+
+/* Section styling */
+.section-background {
+    position: relative;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    color: white;
+    display: flex; /* Use flexbox to center content */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+.section-background .content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: auto;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+    opacity: 0; /* Mulai dengan transparan */
+    transform: translateY(20px); /* Mulai dari sedikit di bawah */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Animasi transisi */
+}
+
+.section-background .content.show {
+    opacity: 1; /* Saat kelas show ditambahkan, menjadi terlihat */
+    transform: translateY(0); /* Kembali ke posisi semula */
+}
+
+.section-background .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+section h2 {
+    font-size: 2rem;
+    color: #fff;
+    position: relative;
+    font-weight: 800;
+    z-index: 2;
+    animation: fadeInUp 1s ease-in-out; /* Menambahkan animasi */
+}
+
+section p {
+    font-size: 1.1rem;
+    color: #ddd;
+    max-width: 700px;
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1s ease-in-out; /* Menambahkan animasi */
+}
+
+/* Header styling */
+header {
+    background: url('fixhead.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+header .content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+    opacity: 0; /* Mulai dengan transparan */
+    transform: translateY(20px); /* Mulai dari sedikit di bawah */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Animasi transisi */
+}
+
+header .content.show {
+    opacity: 1; /* Saat kelas show ditambahkan, menjadi terlihat */
+    transform: translateY(0); /* Kembali ke posisi semula */
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    animation: fadeInUp 1s ease-in-out; /* Menambahkan animasi */
+}
+
+header p {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 1s ease-in-out; /* Menambahkan animasi */
+}
+
+
+header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+
+/* Parallax Styles */
+.parallax-window {
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+}
+
+
+
+.parallax-window .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.parallax-window .content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: auto;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0; /* Mulai dengan transparan */
+    transform: translateY(20px); /* Mulai dari sedikit di bawah */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Animasi transisi */
+}
+
+#home {
+    background: url('coal.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+#about {
+    background: url('about.jpg');
+    background-size: cover;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+#services {
+    background: url('services.jpg');
+    background-size: cover;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+#contact {
+    background: url('contact.jpg');
+    background-size: cover;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+/* Keyframes untuk animasi fade in up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.responsive-iframe {
+    width: 100%;
+    height: 80vh; /* Adjust as needed */
+    border: none;
+}
+
+/* Footer styling */
+footer {
+    background-color: #285b40;
+    color: #ddd;
+    padding: 1rem 0; /* Adjusted padding for a smaller footer */
+    text-align: center;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Login container styles */
+
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 300px; /* Update the width */
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container .logo {
+    width: 100px;
+    margin-bottom: 1rem;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-group label {
+    align-self: flex-start;
+    font-weight: bold;
+    color: #285b40;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #285b40;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 25px; /* Rounded corners */
+    background: linear-gradient(135deg, #285b40, #285b40);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #285b40, #285b40);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('fixhead.jpg') no-repeat center center fixed;
+    background-size: cover;
+    z-index: 1;
+}
+/* Responsive text styles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem; /* Adjust as needed */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* Adjust as needed */
+    }
+
+    .input-group label, button {
+        font-size: 0.9rem; /* Adjust as needed */
+    }
+
+    .content {
+        font-size: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem; /* Adjust as needed */
+    }
+
+    h2 {
+        font-size: 1.2rem; /* Adjust as needed */
+    }
+
+    .input-group label, button {
+        font-size: 0.8rem; /* Adjust as needed */
+    }
+
+    .content {
+        font-size: 0.3rem;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.nav-link.active {
+    background-color: rgba(40, 92, 64, 0.8); /* Contoh warna latar belakang */
+    color: #ffffff !important;
+    border-radius: 3px;
+}

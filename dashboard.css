@@ -1,0 +1,177 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* General styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    font-size: 1rem;
+}
+
+
+.navbar-brand {
+    font-size: calc(0.4rem + 0.5vw);
+}
+
+.nav-link {
+    font-size: calc(0.4rem + 0.5vw);
+}
+
+.content {
+    font-size: calc(2.5rem + 0.5vw);
+}
+
+.input-group label {
+    font-size: calc(0.5rem + 0.5vw);
+}
+
+
+footer p {
+    font-size: calc(0.4rem + 0.5vw);
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #000 !important;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1050;
+    border: none;
+    box-shadow: none;
+}
+
+/* Hover effect for navbar links */
+.navbar-nav .nav-item .nav-link {
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #ffffff !important;
+    background-color: rgba(40, 92, 64, 0.8);
+    border-radius: 5px;
+}
+
+.navbar-brand .logo {
+    width: 30px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Responsive Navbar */
+.hamburger {
+    cursor: pointer;
+    display: none;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 2px;
+    margin: 5px 0;
+    background: #ffffff;
+}
+
+@media only screen and (max-width: 1000px) {
+    .hamburger {
+        display: block;
+    }
+    .navbar-nav {
+        display: none;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 70px;
+        background: #ffffff;
+        padding: 30px;
+        transition: 0.3s;
+    }
+    .navbar #nav_check:checked + .hamburger + .navbar-nav {
+        display: block;
+    }
+    .navbar-nav li {
+        display: block;
+        text-align: center;
+        margin: 5px 0;
+    }
+    .navbar-nav .nav-link {
+        margin: 5px 0;
+        color: #000 !important;
+    }
+}
+
+.navbar.scrolled {
+    background-color: #000 !important;
+}
+
+.navbar.scrolled .navbar-brand {
+    color: #ffffff !important;
+}
+
+/* Default state of hamburger icon */
+.hamburger div {
+    background: #ffffff;
+}
+
+/* Hamburger icon color when scrolled */
+.navbar.scrolled .hamburger div {
+    background: #ffffff;
+}
+
+/* Navbar link color */
+.nav-link {
+    color: #ffffff !important;
+}
+
+.navbar.scrolled .nav-link {
+    color: #ffffff !important;
+}
+
+/* Section styling for JO Daily */
+
+#embed-content {
+    background: #f4f4f4;
+    padding: 2rem;
+    text-align: center;
+    padding-top: 80px;
+}
+
+#embed-content iframe {
+    width: 100%;
+    height: 900px;
+    border: none;
+}
+
+.responsive-iframe {
+    width: 100%;
+    height: 80vh; /* Adjust as needed */
+    border: none;
+}
+
+/* Footer styling */
+footer {
+    background-color: #285b40;
+    color: #ddd;
+    padding: 1rem 0;
+    text-align: center;
+    width: 100%;
+    margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+footer p {
+    margin: 0;
+}
+
+.nav-link.active {
+    background-color: rgba(40, 92, 64, 0.8);
+    color: #ffffff !important;
+    border-radius: 3px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
